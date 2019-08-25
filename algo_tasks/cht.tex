@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{ragged2e}
+\usepackage[OT4]{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage[left=2cm, right=2cm, top=1.5cm, bottom=1.5cm]{geometry}
+\pagenumbering{gobble}
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+	\textbf{\@title}\egroup
+	\\
+}
+\makeatother
+\begin{document}
+	\title{\large Zadanie: CHT \\ Chciwy Taksówkarz}\maketitle
+	\centering \rule{18cm}{0.5pt} \justifying
+	\textbf{Dostępna pamięć: 128MB} \\
+	
+	%MIEJSCE NA TREŚĆ, AKAPITY RODZIELONE \smallbreak$
+	Sieć drogowa miasta \textit{Goldshire} składa się ze skrzyżowań połączonych jednokierunkowymi drogami. Zakładamy, że jeżeli \textbf{a} i \textbf{b} są skrzyżowaniami, to może istnieć co najwyżej jedna bezpośrednia droga z \textbf{a} do \textbf{b}, ale może istnieć jednocześnie droga z \textbf{a} do \textbf{b} i z \textbf{b} do \textbf{a}, oraz nie istnieje bezpośrednia droga z \textbf{a} do \textbf{a}.
+	\smallbreak
+	Artur jest taksówkarzem w \textit{Goldshire}. Płacą mu od kilometra, więc nie idzie klientom na rękę i zawsze stara obrać się jak najdłuższą trasę do celu. Klienci są jednak sprytni i na każdym skrzyżowaniu na trasie sprawdzają pozostałą odległość do celu. Jeżeliby dostrzegli, że na kolejnych skrzyżowaniach trasy ta odległość nie maleje, to z pewnością donieśliby na Artura za oszustwo, a ten zostałby zwolniony, zatem nie może on dopuścić do takiej sytuacji.
+	\smallbreak
+	Dla zadanej sieci drogowej, wraz z punktami startowym i docelowym trasy Artura, znajdź długość wyżej opisanej najdłuższej trasy przejazdu.
+	\begin{flushleft}
+		\LARGE \textbf{Wejście}
+	\end{flushleft}
+	\smallbreak
+	
+	%INFORMACJE O WEJŚCIU$
+	Pierwsza linia wejścia zawiera cztery liczby całkowite $n$, $m$, $s$, $t$, oznaczające kolejno liczbę skrzyżowań, liczbę dróg, numer skrzyżowania startowego i numer skrzyżowania docelowego. Zachodzi $1 < n \leq 10^6$, $1 \leq m \leq 10^6$, $1 \leq s \leq n$, $1 \leq t \leq n$, $s \neq t$. \\
+	Kolejne $m$ linii wejścia opisuje drogi \textit{Goldshire}. Każda z nich zawiera trzy liczby całkowite $a$, $b$, $w$, oznaczające, że ze skrzyżowania $a$ wychodzi droga do skrzyżowania $b$ o długości $w$. Zachodzi $1 \leq a \leq n$, $1 \leq b \leq n$, $a \neq b$, $1 \leq w \leq 10^3$.
+	\begin{flushleft}
+		\LARGE \textbf{Wyjście}
+	\end{flushleft}
+	\smallbreak
+	
+	%INFORMACJE O WYJŚCIU$
+	Na wyjście należy wypisać dokładnie jedną liczbę: długością najdłuższej trasy dla Artura.
+	\begin{flushleft}
+		\LARGE \textbf{Przykład}
+	\end{flushleft}
+	\smallskip 
+	Dla danych wejściowych: \\
+	%DANE WEJŚCIOWE PRZYKŁADU$
+	$6$ $8$ $1$ $4$ \\
+	$1$ $2$ $2$ \\
+	$2$ $1$ $7$ \\
+	$2$ $3$ $3$ \\
+	$3$ $4$ $1$ \\
+	$1$ $5$ $3$ \\
+	$5$ $4$ $50$ \\
+	$2$ $6$ $5$ \\
+	$6$ $4$ $3$
+	\smallskip \\
+	poprawnym wynikiem jest: \\
+	%WYNIK PRZYKŁADU$
+	$10$
+	\smallskip \\
+	\textbf{Objaśnienie do przykładu:} Trasa wynikowa prowadzi kolejno przez skrzyżowania $1$, $2$, $6$, $4$. Trasa $1$, $5$, $4$ jest dłuższa, ale odległość $1$ od celu wynosi $6$, a odległość $5$ od celu wynosi $50$, zatem nie spełnia warunku malejących odległości.
+\end{document}
