@@ -1,0 +1,143 @@
+\documentclass{article}
+
+\usepackage[OT4]{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage[left=2cm, right=2cm, top=1.5cm, bottom=1.5cm]{geometry}
+\pagenumbering{gobble}
+\begin{document}{\begin{center}\LARGE Zestaw 6, rozwiązania \\\large Przemysław Simajchel \smallskip\end{center}}
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}
+			\item Niech $X$ to liczba $k$-luk. Niech $X_i$ to indykator, czy w $i$-tym kubełku zaczyna się $k$-luka. Mamy $X = \sum_{i=0}^{n-k} X_i$.
+			Mamy 
+			\begin{gather*}
+			P(X_i=1) = P(\text{w kubkach od i do i+k-1 nie ma kulek}) \\
+			P(\text{w kubkach od i do i+k-1 nie ma kulek}) = \prod_{j=1}^m P(\text{j-ta kulka znajdzie sie w pozostalych n-k kubkach}) \\ 
+			\prod_{j=1}^m P(\text{j-ta kulka znajdzie sie w pozostalych n-k kubkach}) = \left(\frac{n-k}{n}\right)^m
+			\end{gather*}
+			Zatem $E(X) = (n-k+1) \left(\frac{n-k}{n}\right)^m$.
+			
+		\end{enumerate}
+		
+		\item 
+		Pokażemy, że $Y$ jest Poissonem z parametrem $p\mu$. Rozpisujemy:
+		\begin{gather*}
+			P(Y=k) = \lim_{i \to \infty} P(Y = k | X = i) P(X = i) = \lim_{i \to \infty} {i \choose k}p^k(1-p)^{i-k}\frac{e^{-\mu}\mu^i}{i!} = \frac{p^k e^{-\mu} \mu^k}{k!} \sum_{j=0}^{\infty} \frac{(\mu(1-p))^j}{j!} \\
+			\frac{p^k e^{-\mu} \mu^k}{k!} \sum_{j=0}^{\infty} \frac{(\mu(1-p))^j}{j!} = \frac{(p\mu)^k e^{-\mu}}{k!} e^{(1-p)\mu} = \frac{e^{-p\mu}(p\mu)^k}{k!}
+		\end{gather*}
+		Analogicznie pokazujemy dla $Z$. Są niezależne, bo:
+		\begin{gather*}
+			P(Y = a \cap Z = b) = P(Y = a \cap Z = b | X = a+b) P(X = a+b) = {{a+b}\choose a}p^a(1-p)^b\frac{e^{-\mu}\mu^{a+b}}{(a+b)!} \\
+			{{a+b}\choose a}p^a(1-p)^b\frac{e^{-\mu}\mu^{a+b}}{(a+b)!} =  \frac{e^{-p\mu}(p\mu)^a}{a!} \cdot \frac{e^{-(1-p)\mu}((1-p)\mu)^b}{b!} = P(Y=a) P(Z=b)
+		\end{gather*}
+		Co było do pokazania.
+		\item 
+		\begin{enumerate}
+			\item  Rozpisujemy prawdopodobieństwa z definicji Poissona. Trywialne pozbycie się tych samych wyrazów pozostawia tylko udowodnienie nierówności
+			\[
+			\mu^{2h+1} \geq (\mu + h)(\mu + h - 1)\ldots (\mu +1)(\mu)(\mu - 1) \ldots (\mu - h + 1)(\mu - h)
+			\]
+			Którą dowodzi znany fakt, że iloczyn liczb o stałej sumie jest maksymalny, gdy liczby te są równe.
+			
+			\item 
+			\[
+			P(X \geq \mu) = \sum_{h=0}^{\infty} P(X = \mu + h) \geq \sum_{h = 0}^{\mu-1} P(X = \mu - h - 1) = P(X < \mu)
+			\]
+			Ale $P(X \geq \mu) + P(X < \mu) = 1$, co w połączeniu z powyższą nierównością dowodzi tezę zadania.
+		\end{enumerate}
+		
+		\item Niech $X$ to liczba koszulek sprzedanych danego dnia. $X$ jest Poissonem, bo wyraża liczbę wydarzeń (sprzedaży koszulki) w przedziale (dniu). Zatem mamy
+		\[
+		P(X = 3) = \frac{e^{-5}5^3}{3!}
+		\]
+		
+		\item $X$ analogicznie jak w poprzednim zadaniu.
+		\[
+		P(X \leq 3) = P(X = 0) + P(X=1) + P(X=2) + P(X=3) = \frac{13}{e^3}
+		\]
+		
+		\item 
+		\begin{enumerate}
+			\item Niech $X_1, \ldots X_n$ to liczby kul w kubełkach, $Y_1, \ldots, Y_n$ to odpowiadające im (przy założeniu sumowania do $n$) niezależne zmienne Poissona z parametrem $\frac{n}{n}=1$. Niech $f(x_1, \ldots x_n)$ równe $1$ jeżeli $x_1 = \ldots = x_n = 1$, w.p.w. zero. Dodatkowo kładziemy $(X_1, \dots X_n) = X$, $(Y_1, \dots, Y_n) = Y$. $f$ nieujemna, zatem z aproksymacji Poissona
+			\[
+			P(f(X) = 1) = E(f(X)) \leq e\sqrt{n}E(f(Y)) = e\sqrt{n}P(f(Y) = 1) = e\sqrt{n} \prod_i P(Y_i = 1) = e\sqrt{n} (\frac{1}{e})^n
+			\]
+			
+			\item Każdy rozrzut kul po jednej do każdego kubełka możemy traktować jako permutację liczb od $1$ do $n$. Zatem wynik to $\frac{n!}{n^n}$
+			
+			\item Mamy 
+			\[
+			\frac{P(f(Y)=1)}{P(f(X)=1)} = \frac{e^{-n}}{\frac{n!}{n^n}} = \frac{e^{-n}n^n}{n!}
+			\]
+			Czyli to, co chcieliśmy.
+		\end{enumerate}
+		
+		\item 
+		\begin{enumerate}
+			\item Zauważmy, że zdarzenia, że ta pojedyncza kulka wyląduje w pierwszym, drugim albo trzecim kubełku są symetryczne, zatem szukane prawdopodobieństwo to $\frac{1}{3}$.
+			
+			\item Niech $X_i$ to liczby kulek w odpowiednich wiaderkach. Policzymy $E(X_1 | X_2 = 0)$. Ze względu na symetrię
+			\[
+			E(X_1 | X_2 = 0) = E(X_3 | X_2 = 0) = \ldots = E(X_n | X_2 = 0)
+			\]
+			Oraz oczywiście
+			\[
+			E(\sum_{i=1}^{n} X_i| X_2 = 0) = n
+			\]
+			Zatem z liniowości wartości oczekiwanej mamy
+			\[
+			E(X_1 | X_2 = 0) = \frac{n}{n-1}
+			\]
+			
+			\item 
+			Niech $X_1, \ldots X_n$ to liczby kulek w odpowiadających kubełkach, $Y_1, \ldots, Y_n$ odpowiadające im (przy założeniu sumowania do $n$) zmienne z rozkładu Poissona z parametrem $n$.
+			Zauważmy, że
+			\[
+			P(X_1 > X_2) = P(X_2 > X_1) = \frac{1 - P(X_1 = X_2)}{2}
+			\]
+			Zatem wystarczy policzyć $P(X_1 = X_2)$, równe dokładnie $\sum_{i=0}^{\frac{n}{2}} P(X_1 = i \cap X_2 = i)$. Ustalamy $i$ i wyprowadzamy
+			\begin{gather*}
+			P(X_1 = i \cap X_2 = i) = P(Y_1 = i \cap Y_2 = i | \sum_{i=1}^{n} Y_i = n) \\
+			P(Y_1 = i \cap Y_2 = i | \sum_{i=1}^{n} Y_i = n) = \frac{P(Y_1 = i\cap Y_2 = i \cap \sum_{i=1}^{n} Y_i = n)}{P(\sum_{i=1}^{n} Y_i = n)} \\
+			\frac{P(Y_1 = i\cap Y_2 = i \cap \sum_{i=1}^{n} Y_i = n)}{P(\sum_{i=1}^{n} Y_i = n)} = \frac{P(Y_1 = i) \cdot P(Y_2 = i) \cdot P(\sum_{i=3}^{n} Y_i = n-2i)}{P(\sum_{i=1}^{n} Y_i = n)}
+			\end{gather*}
+			Zmienne $Y_i$ są Poissona, więc wyliczamy z definicji cały ostatni ułamek. Wychodzi
+			\[
+			P(X_1 = i \cap X_2 = i) = \frac{n! (n-2)^{n-2i}}{(i!)^2(n-2i)!n^n}
+			\]
+			Zatem ostatecznie 
+			\[
+			P(X_1 > X_2) = \frac{1}{2} - \sum_{i=0}^{\frac{n}{2}} \frac{n! (n-2)^{n-2i}}{2(i!)^2(n-2i)!n^n}
+			\]
+			
+		\end{enumerate}
+		
+		\item 
+		\begin{enumerate}
+			\item Mamy 
+			\begin{gather*}
+			E[f(Y_1^{(m)},\cdots,Y_n^{(m)})]
+			= \sum_{k=0}^{\infty}E\left[  f(Y_1^{(m)},\cdots,Y_n^{(m)})| \sum Y_i^{(m)} = k \right]
+			P\left(\sum Y_i^{(m)} = k\right) \\
+			\ge \sum_{k=m}^{\infty}E\left[  f(Y_1^{(m)},\cdots,Y_n^{(m)})| \sum Y_i^{(m)} = k \right]
+			P\left(\sum Y_i^{(m)} = k\right) 
+			= \sum_{k=m}^{\infty}E\left[  f(X_1^{(k)},\cdots,X_n^{(k)})\right]
+			P\left(\sum Y_i^{(m)} = k\right) \\
+			\ge E[f(X_1^{(m)},\cdots, X_n^{(m)})]\sum_{k=m}^{\infty}P\left(\sum Y_i^{(m)} = k\right) 
+			=  E[f(X_1^{(m)},\cdots, X_n^{(m)})]Pr\left(\sum Y_i^{(m)} \ge m\right)
+			\end{gather*}
+			Gdzie pierwsza nierówności wynika z nieujemności $f$, a druga z jego monotoniczności. Druga równość wynika z lematu o aproksymacji Poissona z wykładu.
+			
+			\item Powołamy się na fakt, że dla $X$ z rozkładem Poissona z parametrem $\mu$ zachodzi $P(X \geq \mu) \geq \frac{1}{2}$ oraz $P(X \leq \mu) \geq \frac{1}{2}$. Dowód pierwszej nierówności jest wcześniej w zestawie, a druga występuje jako ćwiczenie $5.14(c)$ w naszej książce (tam błędnie nierównośc jest w drugą stronę), którego dowód jest nieciekawy, więc zamiast spisywać zlinkuję paper, w którym on jest: https://projecteuclid.org/euclid.aoms/1177728608 \\
+			Zatem dla $f$ rosnącego fakt w połączeniu z poprzednim podpunktem od razu daje dowód. \\
+			Jeżeli $f$ maleje, to w sposób zupełnie analogiczny do pierwszego podpunktu pokazujemy
+			\[
+			E[f(Y_1^{(m)},\cdots,Y_n^{(m)})] \geq E[f(X_1^{(m)},\cdots, X_n^{(m)})]Pr\left(\sum Y_i^{(m)} \leq m\right)
+			\]
+			Co znów w połączeniu z faktem kończy dowód.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
