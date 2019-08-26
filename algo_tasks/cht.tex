@@ -20,19 +20,21 @@
 	\textbf{Dostępna pamięć: 128MB} \\
 	
 	%MIEJSCE NA TREŚĆ, AKAPITY RODZIELONE \smallbreak$
-	Sieć drogowa miasta \textit{Goldshire} składa się ze skrzyżowań połączonych jednokierunkowymi drogami. Zakładamy, że jeżeli \textbf{a} i \textbf{b} są skrzyżowaniami, to może istnieć co najwyżej jedna bezpośrednia droga z \textbf{a} do \textbf{b}, ale może istnieć jednocześnie droga z \textbf{a} do \textbf{b} i z \textbf{b} do \textbf{a}, oraz nie istnieje bezpośrednia droga z \textbf{a} do \textbf{a}.
+	Sieć drogowa miasta \textit{Goldshire} składa się ze skrzyżowań połączonych jednokierunkowymi drogami o określonych długościach. Zakładamy, że jeżeli \textbf{a} i \textbf{b} są skrzyżowaniami, to może istnieć co najwyżej jedna bezpośrednia droga z \textbf{a} do \textbf{b}, ale może istnieć jednocześnie droga z \textbf{a} do \textbf{b} i z \textbf{b} do \textbf{a}, oraz nie istnieje bezpośrednia droga z \textbf{a} do \textbf{a}. Przez \textit{odległość} skrzyżowania \textbf{a} od \textbf{b} rozumiemy długość \textit{najkrótszej} ścieżki z \textbf{a} do \textbf{b}.
 	\smallbreak
-	Artur jest taksówkarzem w \textit{Goldshire}. Płacą mu od kilometra, więc nie idzie klientom na rękę i zawsze stara obrać się jak najdłuższą trasę do celu. Klienci są jednak sprytni i na każdym skrzyżowaniu na trasie sprawdzają pozostałą odległość do celu. Jeżeliby dostrzegli, że na kolejnych skrzyżowaniach trasy ta odległość nie maleje, to z pewnością donieśliby na Artura za oszustwo, a ten zostałby zwolniony, zatem nie może on dopuścić do takiej sytuacji.
+	Artur jest taksówkarzem w \textit{Goldshire}. Każda jego trasa przejazdu zaczyna i kończy się na pewnych dwóch różnych skrzyżowaniach. Płacą mu od kilometra, więc nie idzie klientom na rękę i zawsze stara obrać się jak najdłuższą trasę do celu. Klienci są jednak sprytni i na każdym skrzyżowaniu na trasie sprawdzają pozostałą odległość do końcowego skrzyżowania. Jeżeliby dostrzegli, że na pewnych kolejnych skrzyżowaniach trasy ta odległość nie zmalała, to z pewnością donieśliby na Artura za oszustwo, a ten zostałby zwolniony, zatem nie może on dopuścić do takiej sytuacji.
 	\smallbreak
-	Dla zadanej sieci drogowej, wraz z punktami startowym i docelowym trasy Artura, znajdź długość wyżej opisanej najdłuższej trasy przejazdu.
+	Dla zadanej sieci drogowej, wraz z punktami startowym i końcowym trasy Artura, znajdź długość wyżej opisanej najdłuższej trasy przejazdu.
 	\begin{flushleft}
 		\LARGE \textbf{Wejście}
 	\end{flushleft}
 	\smallbreak
 	
 	%INFORMACJE O WEJŚCIU$
-	Pierwsza linia wejścia zawiera cztery liczby całkowite $n$, $m$, $s$, $t$, oznaczające kolejno liczbę skrzyżowań, liczbę dróg, numer skrzyżowania startowego i numer skrzyżowania docelowego. Zachodzi $1 < n \leq 10^6$, $1 \leq m \leq 10^6$, $1 \leq s \leq n$, $1 \leq t \leq n$, $s \neq t$. \\
-	Kolejne $m$ linii wejścia opisuje drogi \textit{Goldshire}. Każda z nich zawiera trzy liczby całkowite $a$, $b$, $w$, oznaczające, że ze skrzyżowania $a$ wychodzi droga do skrzyżowania $b$ o długości $w$. Zachodzi $1 \leq a \leq n$, $1 \leq b \leq n$, $a \neq b$, $1 \leq w \leq 10^3$. \\
+	Pierwsza linia wejścia zawiera cztery liczby całkowite $n$, $m$, $s$, $t$, oznaczające kolejno liczbę skrzyżowań, liczbę dróg, numer skrzyżowania startowego i numer skrzyżowania końcowego. Zachodzi $1 < n \leq 2 \cdot 10^5$, $1 \leq m \leq 4 \cdot 10^5$, $1 \leq s \leq n$, $1 \leq t \leq n$, $s \neq t$.
+	\smallbreak
+	Kolejne $m$ linii wejścia opisuje drogi \textit{Goldshire}. Każda z nich zawiera trzy liczby całkowite $a$, $b$, $w$, oznaczające, że ze skrzyżowania $a$ wychodzi droga do skrzyżowania $b$ o długości $w$. Zachodzi $1 \leq a \leq n$, $1 \leq b \leq n$, $a \neq b$, $1 \leq w \leq 10^3$.
+	\smallbreak
 	Zagwarantowane jest, że istnieje przynajmniej jedna ścieżka z $s$ do $t$.
 	\begin{flushleft}
 		\LARGE \textbf{Wyjście}
@@ -40,7 +42,7 @@
 	\smallbreak
 	
 	%INFORMACJE O WYJŚCIU$
-	Na wyjście należy wypisać dokładnie jedną liczbę: długością najdłuższej trasy dla Artura.
+	Na wyjście należy wypisać dokładnie jedną liczbę: długość najdłuższej trasy dla Artura zgodnej z warunkiem malejącej odległości.
 	\begin{flushleft}
 		\LARGE \textbf{Przykład}
 	\end{flushleft}
