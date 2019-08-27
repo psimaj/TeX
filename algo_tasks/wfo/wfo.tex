@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{ragged2e}
+\usepackage[OT4]{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage[left=2cm, right=2cm, top=1.5cm, bottom=1.5cm]{geometry}
+\pagenumbering{gobble}
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+	\textbf{\@title}\egroup
+	\\
+}
+\makeatother
+\begin{document}
+	\title{\large Zadanie: WFO \\ Wiele Formuł}\maketitle
+	\centering \rule{18cm}{0.5pt} \justifying
+	\textbf{Dostępna pamięć: 4MB} \\
+	
+	%MIEJSCE NA TREŚĆ, AKAPITY RODZIELONE \smallbreak$
+	Dana jest liczba $S$ złożona z cyfr od $1$ do $9$. Możesz wstawić znak $+$ na dowolną liczbę (nawet i zerową) pozycji pomiędzy sąsiadującymi cyframi tej liczby. Między każdą parą sąsiadujących cyfr wstawić można co najwyżej jeden znak $+$. W ten sposób z tej liczby powstanie fomuła złożona z paru dodawań, którą można obliczyć.
+	\smallbreak
+	Znajdź sumę wszystkich formuł utworzonych w ten sposób.
+	\begin{flushleft}
+		\LARGE \textbf{Wejście}
+	\end{flushleft}
+	\smallbreak
+	
+	%INFORMACJE O WEJŚCIU$
+	Na wejściu zadana jest liczba $S$. Składa się z cyfr od $1$ do $9$ i zachodzi $1 \leq |S| \leq 10$.
+	\begin{flushleft}
+		\LARGE \textbf{Wyjście}
+	\end{flushleft}
+	\smallbreak
+	
+	%INFORMACJE O WYJŚCIU$
+	Na wyjściu należy wypisać jedną liczbę: sumę wszystkich formuł utworzonych z $S$ według opisanych zasad.
+	\begin{flushleft}
+		\LARGE \textbf{Przykład}
+	\end{flushleft}
+	\smallskip 
+	Dla danych wejściowych: \\
+	%DANE WEJŚCIOWE PRZYKŁADU$
+	$125$
+	\smallskip \\
+	poprawnym wynikiem jest: \\
+	%WYNIK PRZYKŁADU$
+	$176$
+	\smallskip \\
+	\textbf{Objaśnienie do przykładu:} Wszystkie możliwe formuły utworzone z $125$ to $125$, $1+25$, $12+5$, $1+2+5$. Ich suma wynosi $125+26+17+8=176$.
+\end{document}
